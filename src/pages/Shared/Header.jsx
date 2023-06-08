@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
+    }
     const navbarOpt = <>
     <li className='border-b-2 md:mx-2 border-[#F13C20]'><Link to="/">Home</Link></li>
         <li className='border-b-2 md:mx-2 border-[#4056A1]'><Link to="/">Instructors</Link></li>
@@ -51,7 +60,13 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login'><button className="p-3 rounded-xl px-4 bg-[#F13C20] text-white">Login</button></Link>
+                {
+                            user &&
+                            <img className='mx-2 border-2 border-[#F13C20] w-12 rounded-full' src={user.photoURL} alt="" />
+                        }
+                    {
+                        user ? <button onClick={handleLogOut} className="p-3 rounded-xl px-4 bg-[#F13C20] text-white">Log Out</button> : <Link to='/login'><button className="p-3 rounded-xl px-4 bg-[#F13C20] text-white">Login</button></Link>
+                    }
                 </div>
             </div>
         </div>

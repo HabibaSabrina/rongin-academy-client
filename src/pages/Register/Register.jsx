@@ -1,14 +1,30 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-import { updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, googleSignIn} = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const provider = new GoogleAuthProvider()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const handleGoogleSignIn = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const loggedInUser = result.user;
+                navigate(from, { replace: true })
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
     
     const handleUserRegister = event =>{
         event.preventDefault();
@@ -28,7 +44,7 @@ const Register = () => {
             return;
         }
         else if(email.length == 0 || password.length == 0){
-            setError('')
+            setError('Please fill up both email and password field')
             return;
         }
         else if (!/(?=.*[!@#$&*])/.test(password)) {
@@ -90,6 +106,7 @@ const Register = () => {
                         <input className='text-center  focus:outline-0 focus:text-center mt-5 w-64 md:w-80 p-2 border-2 border-red-800 rounded-xl' type="text" name="photo" required />
                         <br />
                         <button className='bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-green-900 mt-10'>Register</button>
+                        <button onClick={handleGoogleSignIn} className='mx-auto bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-green-900 mt-10 flex items-center gap-3 justify-center'><FaGoogle></FaGoogle><span>Google Sign in</span></button>
                         <p className='my-5 text-green-950 font-semibold'>Already have an account? <Link to="/login"><span className='text-red-800 font-semibold'>Login</span></Link></p>
                     </div>
                 </form>

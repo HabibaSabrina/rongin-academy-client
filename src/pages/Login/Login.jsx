@@ -61,7 +61,7 @@ const Login = () => {
                         <br />
                         <button className='bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-[#aa7411] mt-10'>Login</button>
                     </div>
-                    <button onClick={handleGoogleSignIn} className='mx-auto bg-[#673c0b] w-64 rounded-xl p-3 text-xl text-white font-semibold hover:bg-green-900 mt-10 flex items-center gap-3 justify-center'><FaGoogle></FaGoogle><span>Google Sign in</span></button>
+                    <button onClick={handleGoogleSignIn} className='mx-auto bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-green-900 mt-10 flex items-center gap-3 justify-center'><FaGoogle></FaGoogle><span>Google Sign in</span></button>
                         <p className='my-5 text-center text-green-950 font-semibold'>Don't Have an Account? Please <Link to="/register"><span className='text-red-800 font-semibold'>Register</span></Link></p>
                 </form>
                 <p className='text-center text-red-500 font-semibold'>{error}</p>
