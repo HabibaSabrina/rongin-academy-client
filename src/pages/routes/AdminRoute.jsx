@@ -3,7 +3,7 @@ import useAdmin from "../hooks/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
-
+// for the routes which can be accessed by admin only
 const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const [isAdmin, isAdminLoading] = useAdmin();
