@@ -17,29 +17,14 @@ const Header = () => {
     <li className='border-b-2 md:mx-2 border-[#F13C20]'><Link to="/">Home</Link></li>
         <li className='border-b-2 md:mx-2 border-[#4056A1]'><Link to="/">Instructors</Link></li>
         <li className='border-b-2 md:mx-2 border-[#D79922]'><Link to="/">Classes</Link></li>
-        <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/">Dashboard</Link></li>
-        {/* <li>
-            <Link to="/">
-                <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
-                </button>
-            </Link>
-        </li> */}
-        {/* {
-            user ? <>
-                <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-            </> : <>
-                <li><Link to="/login">Login</Link></li>
-            </>
-        } */}
+        <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard">Dashboard</Link></li>
     </>
     return (
         <div>
             <Helmet>
                 <title>Bistro Boss | All users</title>
             </Helmet>
-            <div className="navbar bg-[#f9f9e3] font-semibold">
+            <div className="navbar md:px-20 bg-[#f9f9e3] font-semibold">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

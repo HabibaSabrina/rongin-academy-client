@@ -6,6 +6,8 @@ import {
 import Main from '../layout/Main';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Dashboard from '../layout/Dashboard';
+import AllUsers from '../Dashboard/AllUsers/AllUsers';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,6 +23,16 @@ import Register from '../Register/Register';
         }
       ]
     },
+    {
+      path:'dashboard',
+      element:<Dashboard></Dashboard>,
+      children: [
+        {
+          path:'allusers',
+          element:<AllUsers></AllUsers>
+        }
+      ]
+    }
   ]);
 
 export default router;
