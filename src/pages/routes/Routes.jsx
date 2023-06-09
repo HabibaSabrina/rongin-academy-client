@@ -8,6 +8,8 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Dashboard from '../layout/Dashboard';
 import AllUsers from '../Dashboard/AllUsers/AllUsers';
+import PrivateRoute from './PrivateRoute';
+import AdminRoute from './AdminRoute';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -25,11 +27,11 @@ import AllUsers from '../Dashboard/AllUsers/AllUsers';
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
           path:'allusers',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

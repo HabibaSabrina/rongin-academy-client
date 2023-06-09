@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
 
 const DashboardHeader = () => {
     // Todo
-    const isAdmin = true;
+    const isAdminn = true;
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin)
     const navbarOpt =
         <>
             {
