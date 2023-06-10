@@ -6,8 +6,8 @@ import useInstructor from '../../hooks/useInstructor';
 const DashboardHeader = () => {
 
     const [isAdmin] = useAdmin();
-    // const [isInstructor] = useInstructor()
-    const isInstructor = true;
+    const [isInstructor] = useInstructor()
+    // const isInstructor = true;
     // console.log(isInstructor)
     const navbarOpt =
         <>
