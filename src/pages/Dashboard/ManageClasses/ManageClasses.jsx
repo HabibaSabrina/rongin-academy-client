@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 
 const ManageClasses = () => {
+    const [disable, setDisable] = useState(false)
     const [axiosSecure] = useAxiosSecure()
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await axiosSecure.get('/classes')
@@ -12,7 +13,7 @@ const ManageClasses = () => {
     const updateData = (newValue, id) => {
         const feedback = { feedback: newValue };
       
-        axiosSecure.patch(`/classes/${id}`, feedback)
+        axiosSecure.patch(`/classes/feedback/${id}`, feedback)
           .then(response => {
             Swal.fire('Success', 'Feedback has been sent successfully!', 'success');
           })
@@ -35,6 +36,21 @@ const ManageClasses = () => {
             }
           });
     }
+    const handleStatus = (theStatus, id) =>{
+        const status = { status: theStatus };
+      
+        axiosSecure.patch(`/classes/status/${id}`, status)
+          .then(response => {
+            refetch()
+            Swal.fire('Status', `You have ${theStatus} the class`, 'success');
+          })
+          .catch(error => {
+            // Handle any errors
+            console.error('Error:', error);
+            Swal.fire('Error', 'Failed to confirm!', 'error');
+          });
+
+    }
     return (
         <div className='table-bg p-20 bg-[#f9f9e3]'>
             <div className="">
@@ -47,6 +63,7 @@ const ManageClasses = () => {
                             <th className='py-5 border-x-2 border-[#C5CBE3]'>Instructor Email</th>
                             <th className='py-5 border-x-2 border-[#C5CBE3]'>Available Seats</th>
                             <th className='py-5 border-x-2 border-[#C5CBE3]'>Price</th>
+                            <th className='py-5 border-x-2 border-[#C5CBE3]'>Status</th>
                             <th className='py-5 border-x-2 border-[#C5CBE3]'>Action</th>
                         </tr>
                     </thead>
@@ -67,9 +84,14 @@ const ManageClasses = () => {
                                 <td className='border-x-2 border-[#C5CBE3]'>{theClass.insEmail}</td>
                                 <td className='border-x-2 border-[#C5CBE3]'>{theClass.seat}</td>
                                 <td className='border-x-2 border-[#C5CBE3]'>{theClass.price}</td>
+                                <td className='border-x-2 border-[#C5CBE3]'>{theClass.status}</td>
                                 <td>
-                                    <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Approve</button>
-                                    <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Deny</button>
+                                    {
+                                        (theClass.status === 'approved' || theClass.status === 'denied') ? <button disabled className='p-3 px-6 mr-4 bg-[#F13C20] bg-opacity-30  font-semibold text-white rounded-full'>Approve</button> : <button onClick={() => handleStatus('approved', theClass._id)} className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Approve</button>
+                                    }
+                                    {
+                                         (theClass.status === 'approved' || theClass.status === 'denied') ? <button disabled className='p-3 px-6 mr-4 bg-[#F13C20] bg-opacity-30  font-semibold text-white rounded-full'>Deny</button> : <button onClick={() => handleStatus('denied', theClass._id)} className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Deny</button>
+                                    }
                                     <button onClick={() => handleFeedback(theClass)} className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Feedback</button>
 
 
