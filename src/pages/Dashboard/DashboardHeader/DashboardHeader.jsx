@@ -8,7 +8,7 @@ const DashboardHeader = () => {
     const [isAdmin] = useAdmin();
     // const [isInstructor] = useInstructor()
     const isInstructor = true;
-    console.log(isInstructor)
+    // console.log(isInstructor)
     const navbarOpt =
         <>
             {
@@ -24,7 +24,7 @@ const DashboardHeader = () => {
                 isInstructor &&
                 <>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/addclass">Add a class</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/">My Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/myclasses">My Classes</Link></li>
 
                 </>
             }
