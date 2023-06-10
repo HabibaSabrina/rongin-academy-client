@@ -10,6 +10,7 @@ import Dashboard from '../layout/Dashboard';
 import AllUsers from '../Dashboard/AllUsers/AllUsers';
 import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
+import AddClass from '../Dashboard/AddClass/AddClass';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -32,7 +33,11 @@ import AdminRoute from './AdminRoute';
         {
           path:'allusers',
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
-        }
+        },
+        {
+          path:'addclass',
+          element:<AddClass></AddClass>
+        },
       ]
     }
   ]);

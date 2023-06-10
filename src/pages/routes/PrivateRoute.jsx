@@ -4,6 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 
+
 const PrivateRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext)
     const location = useLocation()
@@ -13,7 +14,7 @@ const PrivateRoute = ({children}) => {
     if(user?.email){
         return children
     }
-    return <Navigate state={{from: location}} to='/login'></Navigate>;
+    return <Navigate to='/login' state={{from: location}}></Navigate>;
 };
 
 export default PrivateRoute;
