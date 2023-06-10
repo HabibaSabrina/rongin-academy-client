@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router";
 import useAdmin from "../hooks/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FaSpinner } from "react-icons/fa";
 
 // for the routes which can be accessed by admin only
 const AdminRoute = ({ children }) => {

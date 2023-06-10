@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useInstructor from "../hooks/useInstructor";
+import { FaSpinner } from "react-icons/fa";
 
 // for the routes which can be accessed by admin only
 const InstructorRoute = ({ children }) => {

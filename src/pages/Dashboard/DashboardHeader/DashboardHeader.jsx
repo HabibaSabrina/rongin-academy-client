@@ -7,15 +7,13 @@ const DashboardHeader = () => {
 
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor()
-    // const isInstructor = true;
-    // console.log(isInstructor)
     const navbarOpt =
         <>
             {
                 isAdmin &&
                 <>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/">Home</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/">Manage Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/allusers">Manage Users</Link></li>
 
                 </>

@@ -27,7 +27,7 @@ const MyClasses = () => {
                         <th className='py-5 border-x-2 border-[#C5CBE3]'>Available Seat</th>
                         <th className='py-5 border-x-2 border-[#C5CBE3]'>Status</th>
                         <th className='py-5 border-x-2 border-[#C5CBE3]'>Total Enrolled</th>
-                        <th className='py-5 border-x-2 border-[#C5CBE3]'>FeedBack</th>
+                        <th className='py-5 border-x-2 border-[#C5CBE3]'>Feedback</th>
                         <th className='py-5'>Update Action</th>
                     </tr>
                 </thead>
