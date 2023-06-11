@@ -48,7 +48,7 @@ const MyClasses = () => {
                             <td className='border-x-2 border-[#C5CBE3]'>{theClass.seat}</td>
                             <td className='border-x-2 border-[#C5CBE3]'>{theClass.status}</td>
                             <td className='border-x-2 border-[#C5CBE3]'>{theClass.enrolled}</td>
-                            <td className='border-x-2 border-[#C5CBE3]'>{theClass.feedback ? theClass.feedback : "None"}</td>
+                            <td className='border-x-2 border-[#C5CBE3]'>{(theClass.status === 'approved' || theClass.status === 'pending') ? "No Feedback" : theClass?.feedback}</td>
                             <td>
                             <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Update</button>
                                 

@@ -13,8 +13,8 @@ const AddClass = () => {
         const clsImg = form.clsImg.value;
         const insEmail = form.insEmail.value;
         const insName = form.insName.value;
-        const price = form.price.value;
-        const seat = form.seat.value;
+        const price = parseFloat(form.price.value);
+        const seat = parseInt(form.seat.value);
         const status = 'pending';
         const enrolled = 0;
         const theClass = { clsName, clsImg, insEmail, insName, price, seat, status, enrolled }

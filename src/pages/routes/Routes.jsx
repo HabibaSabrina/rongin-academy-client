@@ -14,11 +14,16 @@ import AddClass from '../Dashboard/AddClass/AddClass';
 import MyClasses from '../Dashboard/MyClasses/MyClasses';
 import InstructorRoute from './InstructorRoute';
 import ManageClasses from '../Dashboard/ManageClasses/ManageClasses';
+import Home from '../Home/Home/Home';
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
       children:[
+        {
+          path:'/',
+          element:<Home></Home>
+        },
         {
           path:'login',
           element:<Login></Login>
