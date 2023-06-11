@@ -9,6 +9,7 @@ const DashboardHeader = () => {
     const [isInstructor] = useInstructor()
     const navbarOpt =
         <>
+        
             {
                 isAdmin &&
                 <>
@@ -16,13 +17,14 @@ const DashboardHeader = () => {
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/allusers">Manage Users</Link></li>
 
-                </>
-            }
-            {
-                isInstructor &&
+                </> || isInstructor &&
                 <>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/addclass">Add a class</Link></li>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/myclasses">My Classes</Link></li>
+
+                </> || <>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard">Selected Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard">Enrolled Classes</Link></li>
 
                 </>
             }
