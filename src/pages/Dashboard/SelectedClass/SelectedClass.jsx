@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SelectedClass = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -10,7 +11,34 @@ const SelectedClass = () => {
         const res = await axiosSecure.get(`/student/${user.email}`)
         return res.data;
     })
-    console.log(student)
+    const handleClsDelete = theClass => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/student/${theClass._id}`)
+                    .then(res => {
+                        console.log('deleted res', res.data);
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
+            }
+        })
+    }
     return (
         <div className='table-bg p-20 bg-[#f9f9e3]'>
         <div className="">
@@ -40,7 +68,7 @@ const SelectedClass = () => {
                             <td className='border-x-2 border-[#C5CBE3]'>{stu.instructorName}</td>
                             <td className='border-x-2 border-[#C5CBE3]'>{stu.price}</td>
                             <td>
-                            <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Delete</button>
+                            <button onClick={() => handleClsDelete(stu)} className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Delete</button>
                             <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Pay</button>
                                 
                             </td>
