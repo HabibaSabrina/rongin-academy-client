@@ -15,6 +15,7 @@ import MyClasses from '../Dashboard/MyClasses/MyClasses';
 import InstructorRoute from './InstructorRoute';
 import ManageClasses from '../Dashboard/ManageClasses/ManageClasses';
 import Home from '../Home/Home/Home';
+import SelectedClass from '../Dashboard/SelectedClass/SelectedClass';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -53,6 +54,10 @@ import Home from '../Home/Home/Home';
         {
           path:'myclasses',
           element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
+        },
+        {
+          path:'selectedcls',
+          element:<SelectedClass></SelectedClass>
         }
       ]
     }
