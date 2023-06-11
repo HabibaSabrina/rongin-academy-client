@@ -3,12 +3,14 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const [axiosSecure] = useAxiosSecure()
     const {user} = useContext(AuthContext)
     const { data: student = [], refetch } = useQuery(['student'], async () => {
         const res = await axiosSecure.get(`/student/${user.email}`)
+       
         return res.data;
     })
     const handleClsDelete = theClass => {
@@ -69,7 +71,7 @@ const SelectedClass = () => {
                             <td className='border-x-2 border-[#C5CBE3]'>{stu.price}</td>
                             <td>
                             <button onClick={() => handleClsDelete(stu)} className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Delete</button>
-                            <button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Pay</button>
+                            <Link to={`/dashboard/payment/${stu._id}`}><button className='p-3 px-6 mr-4 bg-[#F13C20] hover:bg-blue-800  font-semibold text-white rounded-full'>Pay</button></Link>
                                 
                             </td>
                         </tr>)

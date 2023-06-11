@@ -16,6 +16,7 @@ import InstructorRoute from './InstructorRoute';
 import ManageClasses from '../Dashboard/ManageClasses/ManageClasses';
 import Home from '../Home/Home/Home';
 import SelectedClass from '../Dashboard/SelectedClass/SelectedClass';
+import Payment from '../Dashboard/Payment/Payment';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -58,6 +59,11 @@ import SelectedClass from '../Dashboard/SelectedClass/SelectedClass';
         {
           path:'selectedcls',
           element:<SelectedClass></SelectedClass>
+        },
+        {
+          path:'payment/:id',
+          element:<Payment></Payment>,
+          loader:({params}) => fetch(`http://localhost:5000/studentpayment/${params.id}`)
         }
       ]
     }
