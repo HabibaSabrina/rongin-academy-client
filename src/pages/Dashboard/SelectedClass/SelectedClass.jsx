@@ -13,6 +13,8 @@ const SelectedClass = () => {
        
         return res.data;
     })
+    const bookedClasses = student.filter(booked => booked.clsStatus === 'booked')
+        
     const handleClsDelete = theClass => {
         Swal.fire({
             title: 'Are you sure?',
@@ -40,6 +42,7 @@ const SelectedClass = () => {
 
             }
         })
+        
     }
     return (
         <div className='table-bg p-20 bg-[#f9f9e3]'>
@@ -56,7 +59,7 @@ const SelectedClass = () => {
                 </thead>
                 <tbody>
                     {
-                        student.map(stu => <tr key={stu._id} className='font-semibold text-center border-b-2 border-[#C5CBE3]  bg-[#f9f9e3]'>
+                        bookedClasses.map(stu => <tr key={stu._id} className='font-semibold text-center border-b-2 border-[#C5CBE3]  bg-[#f9f9e3]'>
                             <td>
                                 <div className="avatar">
                                     <div className="rounded w-24 h-24">

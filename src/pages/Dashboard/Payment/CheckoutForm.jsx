@@ -3,15 +3,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const CheckOutForm = ({ classData }) => {
-  const { _id, price, className, classImg, instructorName, } = classData
-  console.log(classData)
+  const { _id, price, className, classImg, instructorName, classId } = classData
   const stripe = useStripe()
   const elements = useElements()
   const navigate = useNavigate()
-  const location = useLocation()
-  const from = location.state?.from?.pathname || '/'
+  const from = '/dashboard/enrolledcls'
   const { user } = useContext(AuthContext)
   const [axiosSecure] = useAxiosSecure()
   const [cardError, setCardError] = useState('');
@@ -22,7 +20,6 @@ const CheckOutForm = ({ classData }) => {
     if (price > 0) {
       axiosSecure.post('/create-payment-intent', { price })
         .then(res => {
-          console.log(res.data.clientSecret)
           setClientSecret(res.data.clientSecret);
         })
     }
@@ -45,7 +42,6 @@ const CheckOutForm = ({ classData }) => {
       card
     })
     if (error) {
-      console.log('error', error)
       setCardError(error.message);
     }
     else {
@@ -93,13 +89,11 @@ const CheckOutForm = ({ classData }) => {
           if (res.data.insertedId) {
             axiosSecure.patch(`/student/${_id}`)
               .then(response => {
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
               })
               .catch(error => {
                 console.error('Error:', error);
-                Swal.fire('Error', 'Failed to confirm!', 'error');
               });
-
             Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -109,8 +103,25 @@ const CheckOutForm = ({ classData }) => {
             })
           }
         })
+      axiosSecure.patch(`/classes/count/${classId}`)
+        .then(response => {
+          navigate(from, { replace: true })
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          Swal.fire('Error', 'Failed to confirm!', 'error');
+        });
     }
   }
+  // axiosSecure.get(`/classes/count/${classId}`)
+  //             .then(response => {
+  //               // navigate(from, { replace: true })
+  //             })
+  //             .catch(error => {
+  //               console.error('Error:', error);
+  //               Swal.fire('Error', 'Failed to confirm!', 'error');
+  //             });
+
   return (
     <div className='bg-[#f9f9e3] p-28'>
       <h1 className='text-center text-[#4056A1] font-semibold text-3xl mb-10'>Pay for the {className} class</h1>
