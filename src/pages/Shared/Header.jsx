@@ -48,7 +48,7 @@ const Header = () => {
                 <div className="navbar-end">
                 {
                             user &&
-                            <img className='mx-2 border-2 border-[#F13C20] w-12 rounded-full' src={user.photoURL} alt="" />
+                            <img className='mx-2 border-2 border-[#F13C20] w-12 h-12 rounded-full' src={user.photoURL} alt="" />
                         }
                     {
                         user ? <button onClick={handleLogOut} className="p-3 rounded-xl px-4 bg-[#F13C20] text-white">Log Out</button> : <Link to='/login'><button className="p-3 rounded-xl px-4 bg-[#F13C20] text-white">Login</button></Link>
