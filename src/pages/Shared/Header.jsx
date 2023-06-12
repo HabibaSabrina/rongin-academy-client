@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user)
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
     const handleLogOut = () => {
         logOut()
             .then()
@@ -18,13 +20,15 @@ const Header = () => {
     <li className='border-b-2 md:mx-2 border-[#F13C20]'><Link to="/">Home</Link></li>
         <li className='border-b-2 md:mx-2 border-[#4056A1]'><Link to="/instructor">Instructors</Link></li>
         <li className='border-b-2 md:mx-2 border-[#D79922]'><Link to="/theclasses">Classes</Link></li>
-        <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard">Dashboard</Link></li>
+        {
+            isAdmin && <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/adminhome">Dashboard</Link></li> || 
+            isInstructor && <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/instructorhome">Dashboard</Link></li> ||
+            <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/studenthome">Dashboard</Link></li>
+        }
     </>
     return (
         <div>
-            <Helmet>
-                <title>Bistro Boss | All users</title>
-            </Helmet>
+            
             <div className="navbar md:px-20 bg-[#f9f9e3] font-semibold">
                 <div className="navbar-start">
                     <div className="dropdown">

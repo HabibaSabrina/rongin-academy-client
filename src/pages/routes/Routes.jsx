@@ -21,6 +21,9 @@ import EnrolledClasses from '../Dashboard/EnrolledClasses/EnrolledClasses';
 import TheClasses from '../TheClasses/TheClasses';
 import InstructorSection from '../InstructorSection/InstructorSection';
 import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
+import AdminHome from '../Dashboard/DashboardHome/AdminHome';
+import InstructorHome from '../Dashboard/DashboardHome/InstructorHome';
+import StudentHome from '../Dashboard/DashboardHome/StudentHome';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -53,6 +56,10 @@ import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
       element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
+          path:'adminhome',
+          element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
+        },
+        {
           path:'manageClasses',
           element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
@@ -61,12 +68,21 @@ import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
+          path:'instructorhome',
+          element:<InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
+
+        },
+        {
           path:'addclass',
           element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
         },
         {
           path:'myclasses',
           element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
+        },
+        {
+          path:'studenthome',
+          element:<StudentHome></StudentHome>
         },
         {
           path:'selectedcls',

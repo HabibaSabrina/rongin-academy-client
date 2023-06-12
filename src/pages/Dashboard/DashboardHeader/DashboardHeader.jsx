@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
+import { FaBookmark, FaBuilding, FaChalkboard, FaChalkboardTeacher, FaHome, FaPalette, FaUserCheck, FaWallet } from 'react-icons/fa';
 
 const DashboardHeader = () => {
 
@@ -13,22 +14,22 @@ const DashboardHeader = () => {
             {
                 isAdmin &&
                 <>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/">Home</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/allusers">Manage Users</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/"><FaHome></FaHome> Home</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/manageClasses"><FaPalette></FaPalette>Manage Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/allusers"><FaUserCheck></FaUserCheck>Manage Users</Link></li>
 
                 </> || isInstructor &&
                 <>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/">Home</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/addclass">Add a class</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/myclasses">My Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/"><FaHome></FaHome> Home</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/addclass"><FaChalkboardTeacher></FaChalkboardTeacher> Add a class</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/myclasses"><FaChalkboard></FaChalkboard> My Classes</Link></li>
 
                 </> || <>
                 
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/">Home</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/selectedcls">Selected Classes</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/enrolledcls">Enrolled Classes</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/paymenthistory">Payment History</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/"><FaHome></FaHome> Home</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/selectedcls"><FaBookmark></FaBookmark> Selected Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/enrolledcls"><FaUserCheck></FaUserCheck> Enrolled Classes</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/paymenthistory"><FaWallet></FaWallet> Payment History</Link></li>
 
                 </>
             }
