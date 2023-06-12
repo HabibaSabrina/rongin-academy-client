@@ -10,7 +10,7 @@ const InstructorSection = () => {
         return res.data;
     })
     return (
-        <div className='grid grid-cols-3 py-40 px-44 bg-[#f9f9e3]'>
+        <div className='grid grid-cols-3 gap-20 py-40 px-44 bg-[#f9f9e3]'>
             {
                 users.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)
             }
