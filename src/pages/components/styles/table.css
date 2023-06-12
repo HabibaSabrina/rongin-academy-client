@@ -1,4 +1,4 @@
 .table-bg{
-    background-image: url('../../../../public/tablebg.png');
+    background-image: url('/tablebg.png');
     background-size: cover;
 }

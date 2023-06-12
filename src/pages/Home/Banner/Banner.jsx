@@ -6,16 +6,16 @@ const Banner = () => {
             <div>
                 <div className="carousel md:w-96 max-sm:h-64 rounded-xl">
                     <div id="item1" className="carousel-item md:w-96">
-                        <img src="../../../../public/slider4.jpg" className="md:w-96 max-sm:h-64" />
+                        <img src="/slider4.jpg" className="md:w-96 max-sm:h-64" />
                     </div>
                     <div id="item2" className="carousel-item md:w-96">
-                        <img src="../../../../public/slider1.jpg" className="md:w-96 max-sm:h-64" />
+                        <img src="/slider1.jpg" className="md:w-96 max-sm:h-64" />
                     </div>
                     <div id="item3" className="carousel-item md:w-96">
-                        <img src="../../../../public/slider2.jpg" className="md:w-96 max-sm:h-64" />
+                        <img src="/slider2.jpg" className="md:w-96 max-sm:h-64" />
                     </div>
                     <div id="item4" className="carousel-item md:w-96">
-                        <img src="../../../../public/slider3.jpg" className="md:w-96 max-sm:h-64" />
+                        <img src="/slider3.jpg" className="md:w-96 max-sm:h-64" />
                     </div>
                 </div>
                 <div className="flex justify-center md:w-96 py-2 gap-2">

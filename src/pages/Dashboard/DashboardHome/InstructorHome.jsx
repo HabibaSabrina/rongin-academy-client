@@ -1,9 +1,11 @@
 import React from 'react';
+import Title from '../../components/Title/Title';
 
 const InstructorHome = () => {
     return (
-        <div>
-            <h1>Instructor</h1>
+        <div className='bg-[#f9f9e3] pt-5'>
+            <Title heading="Welcome to Instructor Panel"></Title>
+            <img className='mx-auto pb-20' src="/slider2.jpg" alt="" />
         </div>
     );
 };

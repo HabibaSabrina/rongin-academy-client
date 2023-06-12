@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import InstructorCard from './InstructorCard';
+import Title from '../components/Title/Title';
 
 const InstructorSection = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -10,10 +11,13 @@ const InstructorSection = () => {
         return res.data;
     })
     return (
-        <div className='grid grid-cols-3 gap-20 py-40 px-44 bg-[#f9f9e3]'>
+        <div className='bg-[#f9f9e3] pt-5'>
+            <Title heading="Instructors" subHeading="Our Instructors are very good at their works"></Title>
+            <div className='grid grid-cols-3 gap-20 py-20 px-44 bg-[#f9f9e3]'>
             {
                 users.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)
             }
+        </div>
         </div>
     );
 };
