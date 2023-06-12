@@ -25,7 +25,7 @@ const DashboardHeader = () => {
                 </> || <>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/selectedcls">Selected Classes</Link></li>
                     <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/enrolledcls">Enrolled Classes</Link></li>
-                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard">Payment History</Link></li>
+                    <li className='border-b-2 md:mx-2 border-white'><Link to="/dashboard/paymenthistory">Payment History</Link></li>
 
                 </>
             }

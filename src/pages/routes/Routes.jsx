@@ -20,7 +20,7 @@ import Payment from '../Dashboard/Payment/Payment';
 import EnrolledClasses from '../Dashboard/EnrolledClasses/EnrolledClasses';
 import TheClasses from '../TheClasses/TheClasses';
 import InstructorSection from '../InstructorSection/InstructorSection';
-import UpdateMyClass from '../Dashboard/MyClasses/UpdateMyClass';
+import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -69,11 +69,6 @@ import UpdateMyClass from '../Dashboard/MyClasses/UpdateMyClass';
           element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
         },
         {
-          path:'updateclass',
-          element:<InstructorRoute><UpdateMyClass></UpdateMyClass></InstructorRoute>
-
-        },
-        {
           path:'selectedcls',
           element:<SelectedClass></SelectedClass>
         },
@@ -81,6 +76,11 @@ import UpdateMyClass from '../Dashboard/MyClasses/UpdateMyClass';
           path:'payment/:id',
           element:<Payment></Payment>,
           loader:({params}) => fetch(`http://localhost:5000/studentpayment/${params.id}`)
+        },
+        {
+          path:'paymenthistory',
+          element:<PaymentHistory>s</PaymentHistory>
+
         },
         {
           path:'enrolledcls',
