@@ -3,6 +3,7 @@ import PopularClasses from '../PopularClasses/PopularClasses';
 import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import Banner from '../Banner/Banner';
 import ExtraSection from '../ExtraSection/ExtraSection';
+import { Helmet } from 'react-helmet';
 
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
     }, [theme])
     return (
         <div>
+            <Helmet><title>Rongin Academy | Home</title></Helmet>
            <div className='m-10'>
            <label className="swap">
                 <input className=' bg-[#4056A1] rounded-xl' type="checkbox" onChange={handleToggle} />

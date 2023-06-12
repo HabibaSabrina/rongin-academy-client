@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css'
+import { Helmet } from 'react-helmet';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const { signIn, googleSignIn } = useContext(AuthContext)
@@ -54,6 +55,7 @@ const Login = () => {
     }
     return (
         <div className=' p-20 login-bg bg-[#f9f9e3]'>
+            <Helmet><title>Rongin Academy | Login</title></Helmet>
             <div className='bg-[#f9f9e3] border-4 border-blue-800 p-10 md:mx-96 rounded-xl'>
                 <h1 className='text-center text-3xl font-bold text-[#673c0b]'>Login</h1>
                 <form onSubmit={handleUserLogin}>
