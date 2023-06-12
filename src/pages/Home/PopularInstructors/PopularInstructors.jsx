@@ -10,7 +10,7 @@ const PopularInstructors = () => {
         return res.data;
     })
     return (
-        <div className='md:grid grid-cols-3 gap-20 text-center md:py-20 px-20 md:px-52 bg-[#f9f9e3]'>
+        <div className='md:grid grid-cols-3 gap-20 text-center md:py-20 py-10 px-20 md:px-52 bg-[#f9f9e3]'>
             {
                 users.map(popularIns => <PopularInstructorCard key={popularIns._id} popularIns={popularIns}></PopularInstructorCard>)
             }
