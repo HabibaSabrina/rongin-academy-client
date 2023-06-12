@@ -75,7 +75,7 @@ import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
         {
           path:'payment/:id',
           element:<Payment></Payment>,
-          loader:({params}) => fetch(`http://localhost:5000/studentpayment/${params.id}`)
+          loader:({params}) => fetch(`https://rongin-academy-server-habibasabrina.vercel.app/studentpayment/${params.id}`)
         },
         {
           path:'paymenthistory',
