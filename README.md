@@ -14,7 +14,10 @@ It is website of drawing school where students can take different types of drawi
 * Dynamic title
 * CRUD Operation
 * Error page 404 when the route is unknown
+* payment method is implemented 
 * Used Tailwind css framework
+### Used packages/ technology name
+* tailwind, reactjs, vercel, firebase, nodejs, express js, mongodb, react-awesome-reveal, react-icons, react-helmet, stripe, tanstack query, axios, react-dom, react-hook, sweetalert2, daisyui etc. 
 
 ## Firebase Live Website Link
 https://rongin-academy.web.app/
