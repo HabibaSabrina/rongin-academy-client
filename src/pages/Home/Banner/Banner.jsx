@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='md:flex bg-[#f9f9e3] md:p-20 justify-center items-center gap-10 p-5'>
+        <div className='md:flex md:p-20 justify-center items-center gap-10 p-5'>
             <div>
                 <div className="carousel md:w-96 max-sm:h-64 rounded-xl">
                     <div id="item1" className="carousel-item md:w-96">

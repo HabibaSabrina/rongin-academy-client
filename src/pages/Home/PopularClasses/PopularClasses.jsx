@@ -10,7 +10,7 @@ const PopularClasses = () => {
         return res.data;
     })
     return (
-        <div className='md:flex gap-10 md:px-32 py-10 bg-[#f9f9e3]'>
+        <div className='md:flex gap-10 md:px-32 py-10'>
             {
                 classes.map(popular => <PopularClassCard key={popular._id} popular={popular}></PopularClassCard>)
             }
