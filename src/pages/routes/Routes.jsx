@@ -20,6 +20,7 @@ import Payment from '../Dashboard/Payment/Payment';
 import EnrolledClasses from '../Dashboard/EnrolledClasses/EnrolledClasses';
 import TheClasses from '../TheClasses/TheClasses';
 import InstructorSection from '../InstructorSection/InstructorSection';
+import UpdateMyClass from '../Dashboard/MyClasses/UpdateMyClass';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -66,6 +67,11 @@ import InstructorSection from '../InstructorSection/InstructorSection';
         {
           path:'myclasses',
           element:<InstructorRoute><MyClasses></MyClasses></InstructorRoute>
+        },
+        {
+          path:'updateclass',
+          element:<InstructorRoute><UpdateMyClass></UpdateMyClass></InstructorRoute>
+
         },
         {
           path:'selectedcls',
