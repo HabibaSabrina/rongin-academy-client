@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css'
 const Login = () => {
-    const {signIn, googleSignIn} = useContext(AuthContext)
+    const [showPass, setShowPass] = useState(false)
+    const { signIn, googleSignIn } = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const provider = new GoogleAuthProvider()
@@ -22,6 +23,10 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
             })
+
+    }
+    const handlePass = event =>{
+        setShowPass(!showPass)
 
     }
     const handleUserLogin = event => {
@@ -57,12 +62,17 @@ const Login = () => {
                         <input className='text-center  focus:outline-0 focus:text-center mt-5 w-64 md:w-80 p-2 border-2 border-red-800 rounded-xl' type="email" name="email" required />
                         <br />
                         <p className='font-bold mt-10 text-[#673c0b] '>Password</p>
-                        <input className='text-center  focus:outline-0 focus:text-center mt-5 w-64 md:w-80 p-2 border-2 border-red-800 rounded-xl' type="password" name="password" required />
+                        <input className='text-center  focus:outline-0 focus:text-center mt-5 w-64 md:w-80 p-2 border-2 border-red-800 rounded-xl' type={showPass ? "text" : "password"} name="password" required />
+                        <label className="swap text-xl -mr-8 ml-2">
+                            <input type="checkbox" onChange={handlePass} />
+                            <div className="swap-on"><FaEye></FaEye></div>
+                            <div className="swap-off"><FaEyeSlash></FaEyeSlash></div>
+                        </label>
                         <br />
                         <button className='bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-[#aa7411] mt-10'>Login</button>
                     </div>
                     <button onClick={handleGoogleSignIn} className='mx-auto bg-[#673c0b] w-64 rounded-full p-3 text-xl text-white font-semibold hover:bg-green-900 mt-10 flex items-center gap-3 justify-center'><FaGoogle></FaGoogle><span>Google Sign in</span></button>
-                        <p className='my-5 text-center text-green-950 font-semibold'>Don't Have an Account? Please <Link to="/register"><span className='text-red-800 font-semibold'>Register</span></Link></p>
+                    <p className='my-5 text-center text-green-950 font-semibold'>Don't Have an Account? Please <Link to="/register"><span className='text-red-800 font-semibold'>Register</span></Link></p>
                 </form>
                 <p className='text-center text-red-500 font-semibold'>{error}</p>
                 <p className='text-center text-blue-800 font-semibold'>{success}</p>

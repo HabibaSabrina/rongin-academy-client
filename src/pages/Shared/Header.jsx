@@ -22,7 +22,7 @@ const Header = () => {
         <li className='border-b-2 md:mx-2 border-[#D79922]'><Link to="/theclasses">Classes</Link></li>
         {
             isAdmin && <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/adminhome">Dashboard</Link></li> || 
-            isInstructor && <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/instructorhome">Dashboard</Link></li> ||
+            isInstructor && <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/instructorhome">Dashboard</Link></li> || user &&
             <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard/studenthome">Dashboard</Link></li>
         }
     </>

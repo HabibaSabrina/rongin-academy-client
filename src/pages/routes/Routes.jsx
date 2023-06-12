@@ -24,10 +24,12 @@ import PaymentHistory from '../Dashboard/Payment/PaymentHistory';
 import AdminHome from '../Dashboard/DashboardHome/AdminHome';
 import InstructorHome from '../Dashboard/DashboardHome/InstructorHome';
 import StudentHome from '../Dashboard/DashboardHome/StudentHome';
+import ErrorPage from '../ErrorPage/ErrorPage';
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
           path:'/',
