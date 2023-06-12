@@ -1,10 +1,11 @@
 import React from 'react';
-import TheClasses from '../TheClasses/TheClasses';
+import PopularClasses from '../PopularClasses/PopularClasses';
+
 
 const Home = () => {
     return (
         <div>
-            <TheClasses></TheClasses>
+            <PopularClasses></PopularClasses>
         </div>
     );
 };

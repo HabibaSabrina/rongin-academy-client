@@ -17,7 +17,7 @@ const Header = () => {
     const navbarOpt = <>
     <li className='border-b-2 md:mx-2 border-[#F13C20]'><Link to="/">Home</Link></li>
         <li className='border-b-2 md:mx-2 border-[#4056A1]'><Link to="/">Instructors</Link></li>
-        <li className='border-b-2 md:mx-2 border-[#D79922]'><Link to="/">Classes</Link></li>
+        <li className='border-b-2 md:mx-2 border-[#D79922]'><Link to="/theclasses">Classes</Link></li>
         <li className='border-b-2 md:mx-2 border-[#C5CBE3]'><Link to="/dashboard">Dashboard</Link></li>
     </>
     return (

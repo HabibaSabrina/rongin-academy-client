@@ -18,6 +18,7 @@ import Home from '../Home/Home/Home';
 import SelectedClass from '../Dashboard/SelectedClass/SelectedClass';
 import Payment from '../Dashboard/Payment/Payment';
 import EnrolledClasses from '../Dashboard/EnrolledClasses/EnrolledClasses';
+import TheClasses from '../TheClasses/TheClasses';
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,6 +27,10 @@ import EnrolledClasses from '../Dashboard/EnrolledClasses/EnrolledClasses';
         {
           path:'/',
           element:<Home></Home>
+        },
+        {
+          path:'theclasses',
+          element:<TheClasses></TheClasses>
         },
         {
           path:'login',

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
-import { AuthContext } from '../../../providers/AuthProvider';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import useAdmin from '../../hooks/useAdmin';
-import useInstructor from '../../hooks/useInstructor';
+import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+
 
 const ClassCard = ({ theClass, user }) => {
     const [axiosSecure] = useAxiosSecure()
@@ -13,7 +13,14 @@ const ClassCard = ({ theClass, user }) => {
 
     const { clsName, clsImg, insName, seat, price } = theClass
     const handleBookmark = (theClass) =>{
-        console.log(user)
+        if(!user){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You have to Login first.',
+              })
+              return;
+        }
         const bookedCls = {studentName: user.displayName, studentEmail: user.email, classId:theClass._id ,className: theClass.clsName, classImg: theClass.clsImg, instructorName: theClass.insName, price: parseFloat(theClass.price), clsStatus: 'booked'}
                 axiosSecure.post(`/student/${user.email}`, bookedCls)
                 .then(data => {
@@ -38,7 +45,7 @@ const ClassCard = ({ theClass, user }) => {
                 })
     }
     return (
-        <div className={`w-80 border-2 rounded-xl ${seat===0 ? 'bg-[#d61111] ' : 'bg-white'} shadow-xl justify-center`}>
+        <div className={`md:w-80 max-sm:mb-5 border-2  rounded-xl ${seat===0 ? 'bg-[#d61111] ' : 'bg-white'} shadow-xl justify-center`}>
             <img src={clsImg} className='mx-auto w-full border-b-2 rounded-t-xl' alt="" />
             <p className={`text-center text-2xl ${seat===0 ? 'text-slate-400' : 'text-[#F13C20]'} font-semibold mt-4`}>{clsName}</p>
             <p className='text-center my-3'><span className='font-semibold text-[#4056A1]'>Instructor:</span> {insName}</p>
