@@ -14,9 +14,9 @@ const Footer = () => {
                     <p className='mb-3'><b>Fax:</b> +1 (0) 000 0000 002</p>
                     <h1 className='my-5 text-2xl font-semibold'>Follow</h1>
                     <div className='flex gap-3'>
-                        <Link to='https://www.facebook.com/'><button className='p-3 border-2 rounded-full bg-blue-400 text-white'><FaFacebook className='w-6 h-6'></FaFacebook></button></Link>
-                        <Link to='https://www.instagram.com/'><button className='bg-red-700 border-2 text-white p-3 rounded-full bg-'><FaInstagram className='w-6 h-6'></FaInstagram></button></Link>
-                        <Link to='https://www.google.com/'><button className='p-3 bg-green-600 text-white rounded-full border-2'><FaGoogle className='w-6 h-6'></FaGoogle></button></Link>
+                        <Link to='https://www.facebook.com/'><button className='p-3 border-2 rounded-full text-white'><FaFacebook className='w-6 h-6'></FaFacebook></button></Link>
+                        <Link to='https://www.instagram.com/'><button className=' border-2 text-white p-3 rounded-full bg-'><FaInstagram className='w-6 h-6'></FaInstagram></button></Link>
+                        <Link to='https://www.google.com/'><button className='p-3  text-white rounded-full border-2'><FaGoogle className='w-6 h-6'></FaGoogle></button></Link>
                     </div>
                    
                 </div>
@@ -32,7 +32,7 @@ const Footer = () => {
                 <div className='bg-slate-900 md:flex items-center justify-between text-white border-t-2 max-sm:p-5'>
                 <div className='flex gap-2 pt-3 items-center justify-center'>
                     <img src="/logo.png" className='w-16' alt="" />
-                    <h1 className='h-12 text-4xl font-bold '>Woodland Toys</h1>
+                    <h1 className='h-12 text-4xl font-bold '>RonginAcademy</h1>
                 </div>
                 <p className='font-semibold text-center p-3'>Copyright © 2014-2023. All rights reserved</p>
             </div>
