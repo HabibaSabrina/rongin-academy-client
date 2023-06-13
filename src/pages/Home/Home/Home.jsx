@@ -28,8 +28,8 @@ const Home = () => {
            <div className='m-10'>
            <label className="swap">
                 <input className=' bg-[#4056A1] rounded-xl' type="checkbox" onChange={handleToggle} />
-                <div className="p-3 text-white font-semibold swap-off">Dark Theme OFF</div>
-                <div className="p-3 text-white font-semibold swap-on">Dark Theme ON</div>
+                <div className="p-3 text-white font-semibold swap-off">Dark Theme ON</div>
+                <div className="p-3 text-white font-semibold swap-on">Dark Theme OFF</div>
             </label>
            </div>
             <Banner></Banner>
