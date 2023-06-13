@@ -15,7 +15,7 @@ const InstructorSection = () => {
         <div className='bg-[#f9f9e3] pt-5'>
             <Helmet><title>Rongin Academy | Instructor</title></Helmet>
             <Title heading="Instructors" subHeading="Our Instructors are very good at their works"></Title>
-            <div className='grid grid-cols-3 gap-20 py-20 px-44 bg-[#f9f9e3]'>
+            <div className='md:grid grid-cols-3 gap-20 py-20 md:px-44 bg-[#f9f9e3]'>
             {
                 users.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)
             }

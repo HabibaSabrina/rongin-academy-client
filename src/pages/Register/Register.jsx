@@ -122,7 +122,7 @@ const Register = () => {
     return (
         <div>
             <Helmet><title>Rongin Academy | Register</title></Helmet>
-            <div className='login-bg p-20 bg-[#f9f9e3]'>
+            <div className='login-bg md:p-20 p-5 bg-[#f9f9e3]'>
                 <div className='bg-[#f9f9e3] border-4 border-blue-800 p-10 md:mx-96 rounded-xl'>
                     <h1 className='text-center text-3xl font-bold text-[#673c0b]'>Register</h1>
                     <form onSubmit={handleUserRegister}>

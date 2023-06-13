@@ -54,7 +54,7 @@ const Login = () => {
             })
     }
     return (
-        <div className=' p-20 login-bg bg-[#f9f9e3]'>
+        <div className=' md:p-20 p-5 login-bg bg-[#f9f9e3]'>
             <Helmet><title>Rongin Academy | Login</title></Helmet>
             <div className='bg-[#f9f9e3] border-4 border-blue-800 p-10 md:mx-96 rounded-xl'>
                 <h1 className='text-center text-3xl font-bold text-[#673c0b]'>Login</h1>
